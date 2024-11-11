@@ -1,0 +1,47 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build files
+dist/
+build/
+coverage/
+.out/
+.next/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE-specific settings
+.idea/
+.vscode/
+*.swp
+
+# Temporary files
+tmp/
+temp/
+
