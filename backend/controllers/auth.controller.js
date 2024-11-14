@@ -1,6 +1,6 @@
 import { User } from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
-import { generateToken } from "../utils/generateToken.js";
+import { generateTokenAndSetCookie } from "../utils/generateToken.js";
 
 export const handleUserSignup = async (req, res) => {
   try {
@@ -63,27 +63,19 @@ export const handleUserSignup = async (req, res) => {
       image: randomImage,
     });
 
-    if (newUser) {
-      generateToken(newUser._id, res);
-      await newUser.save();
-      return res.status(201).json({
-        success: true,
-        message: "User created successfully",
-        user: {
-          id: newUser._id,
-          username: newUser.username,
-          email: newUser.email,
-          image: newUser.image,
-          searchHistory: newUser.searchHistory,
-          password: "",
-        },
-      });
-    } else {
-      return res.status(400).json({
-        success: false,
-        message: "User not created",
-      });
-    }
+    const token = generateTokenAndSetCookie(newUser._id, res);
+    console.log("token: ", token);
+
+    await newUser.save();
+
+    res.status(201).json({
+      success: true,
+      message: "User created successfully",
+      user: {
+        ...newUser._doc,
+        password: "",
+      },
+    });
   } catch (error) {
     console.log("Error in handleUserSignup:", error.message);
     return res.status(500).json({
@@ -140,17 +132,13 @@ export const handleUserLogin = async (req, res) => {
       });
     }
     // jwt token generate and set into cookie
-    generateToken(user._id, res);
+    generateTokenAndSetCookie(user._id, res);
 
-    return res.status(200).json({
+    res.status(200).json({
       success: true,
       message: "User logged in successfully",
       user: {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-        image: user.image,
-        searchHistory: user.searchHistory,
+        ...user._doc,
         password: "",
       },
     });
@@ -172,6 +160,22 @@ export const handleUserLogout = (req, res) => {
     });
   } catch (error) {
     console.log("Error in handleUserLogout:", error.message);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+export const handleAuthCheck = async (req, res) => {
+  // console.log("req.user:", req.user);
+  try {
+    res.status(200).json({
+      success: true,
+      user: req.user,
+    });
+  } catch (error) {
+    console.log("Error in handleAuthCheck:", error.message);
     return res.status(500).json({
       success: false,
       message: "Internal server error",

@@ -28,16 +28,9 @@ export const getTvshowTrailers = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      trailers: data.results,
+      content: data.results,
     });
   } catch (error) {
-    if (error.response.status === 404) {
-      return res.status(404).json({
-        success: false,
-        message: "Tvshow not found",
-      });
-    }
-
     console.log("Error in getTvshowTrailers:", error.message);
     return res.status(500).json({
       success: false,
@@ -56,16 +49,9 @@ export const getTvshowDetails = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      details: data.results,
+      content: data.results,
     });
   } catch (error) {
-    if (error.response.status === 404) {
-      return res.status(404).json({
-        success: false,
-        message: "Tvshow not found",
-      });
-    }
-
     console.log("Error in getTvshowDetails:", error.message);
     return res.status(500).json({
       success: false,
@@ -84,16 +70,9 @@ export const getSimilarTvshows = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      similarMovies: data.results,
+      content: data.results,
     });
   } catch (error) {
-    if (error.response.status === 404) {
-      return res.status(404).json({
-        success: false,
-        message: "Tvshow not found",
-      });
-    }
-
     console.log("Error in getSimilarTvshows:", error.message);
     return res.status(500).json({
       success: false,
@@ -111,16 +90,9 @@ export const getTvshowsByCategory = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      moviesCategory: data.results,
+      content: data.results,
     });
   } catch (error) {
-    if (error.response.status === 404) {
-      return res.status(404).json({
-        success: false,
-        message: "Tvshow not found",
-      });
-    }
-
     console.log("Error in getTvshowsByCategory:", error.message);
     return res.status(500).json({
       success: false,

@@ -28,16 +28,9 @@ export const getMovieTrailers = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      trailers: data.results,
+      content: data.results,
     });
   } catch (error) {
-    if (error.response.status === 404) {
-      return res.status(404).json({
-        success: false,
-        message: "Movie not found",
-      });
-    }
-
     console.log("Error in getMovieTrailers:", error.message);
     return res.status(500).json({
       success: false,
@@ -56,16 +49,9 @@ export const getMovieDetails = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      details: data.results,
+      content: data.results,
     });
   } catch (error) {
-    if (error.response.status === 404) {
-      return res.status(404).json({
-        success: false,
-        message: "Movie not found",
-      });
-    }
-
     console.log("Error in getMovieDetails:", error.message);
     return res.status(500).json({
       success: false,
@@ -84,16 +70,9 @@ export const getSimilarMovies = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      similarMovies: data.results,
+      content: data.results,
     });
   } catch (error) {
-    if (error.response.status === 404) {
-      return res.status(404).json({
-        success: false,
-        message: "Movie not found",
-      });
-    }
-
     console.log("Error in similarMovies:", error.message);
     return res.status(500).json({
       success: false,
@@ -111,16 +90,9 @@ export const getMoviesByCategory = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      moviesCategory: data.results,
+      content: data.results,
     });
   } catch (error) {
-    if (error.response.status === 404) {
-      return res.status(404).json({
-        success: false,
-        message: "Movie not found",
-      });
-    }
-
     console.log("Error in getMoviesByCategory:", error.message);
     return res.status(500).json({
       success: false,
