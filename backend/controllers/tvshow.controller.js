@@ -49,7 +49,7 @@ export const getTvshowDetails = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      content: data.results,
+      content: data,
     });
   } catch (error) {
     console.log("Error in getTvshowDetails:", error.message);
