@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/netflix-logo.png";
+import logo from "../assets/freetime.png";
 import { useAuthStore } from "../store/authUser";
 import { Loader } from "lucide-react";
 import Footer from "@/components/Footer";

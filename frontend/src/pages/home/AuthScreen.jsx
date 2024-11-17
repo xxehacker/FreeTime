@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/netflix-logo.png";
+import logo from "../../assets/freetime.png";
 import tv from "../../assets/tv.png";
 import downloadIcon from "../../assets/download-icon.gif";
 import strangerThings from "../../assets/stranger-things-sm.png";
