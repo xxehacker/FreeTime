@@ -35,7 +35,7 @@ function App() {
         <Route path="/watch/:id" element={user ? <WatchPage /> : <LoginPage />} />
         <Route path='/*' element={<NotFoundPage />} />
       </Routes>
-      <Toaster />
+      <Toaster position="top-center" reverseOrder={true}  />
     </>
   );
 }

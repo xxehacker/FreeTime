@@ -9,6 +9,7 @@ import devicePile from "../../assets/device-pile.png";
 import kids from "../../assets/kids.png";
 import { ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
+import toast from "react-hot-toast";
 
 function AuthScreen() {
   const [email, setEmail] = React.useState("");
@@ -18,7 +19,7 @@ function AuthScreen() {
     console.log(email);
 
     if (!email) {
-      alert("Please fill the email field");
+      toast.error("Please enter your email");
     } else {
       navigate("/signup?email=" + email);
     }
@@ -32,7 +33,7 @@ function AuthScreen() {
           </Link>
           <Link
             to={"/login"}
-            className="bg-red-600 px-4 py-2 rounded hover:bg-red-700 text-white"
+            className="bg-pink-700 px-4 py-2 rounded hover:bg-pink-600 text-white"
           >
             Login
           </Link>
@@ -59,7 +60,7 @@ function AuthScreen() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="bg-red-600 text-xl lg:text-2xl px-2 lg:px-6 py-1 md:py-2 rounded flex justify-center items-center">
+            <button className="bg-pink-700 hover:bg-pink-600 text-xl lg:text-2xl px-2 lg:px-6 py-1 md:py-2 rounded flex justify-center items-center">
               Get Started
               <ChevronRight className="size-8 md:size-10" />
             </button>
