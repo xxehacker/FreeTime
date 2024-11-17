@@ -90,7 +90,7 @@ function LoginPage() {
               </div>
 
               <button
-                className="w-full py-2 mt-4 bg-red-600 hover:bg-red-700 text-white rounded-md"
+                className="w-full py-2 mt-4 bg-pink-700 hover:bg-pink-600 text-white rounded-md"
                 onClick={handleLogin}
               >
                 Login
