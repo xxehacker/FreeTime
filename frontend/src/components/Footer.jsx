@@ -66,7 +66,7 @@ const Footer = () => {
           <p>
             Built by{" "}
             <Link
-              href="https://github.com/xxehacker"
+              to={"https://github.com/xxehacker"}
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4 text-pink-600"
