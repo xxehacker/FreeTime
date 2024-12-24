@@ -13,7 +13,7 @@
 </pre>
 </div>
 <p align="center">
-	<b><code>❯ FreeTime : A platform to provide information about movies and tv shows</code></b>
+	<b><code>❯ FreeTime : A platform to provide information about movies and tv shows With proper User Authentication </code></b>
 </p>
 <p align="center">
 	<!-- Shields.io badges disabled, using skill icons. --></p>
